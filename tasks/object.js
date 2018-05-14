@@ -1,4 +1,4 @@
-module.exports.getSortKeys = () => {
+const getSortKeys = () => {
     const object = {
         happiness3: 3,
         happiness4: 4,
@@ -8,14 +8,12 @@ module.exports.getSortKeys = () => {
     }
     
     const array = [];
-    const result = [];
     
     for(let k in object) {
         array.push([k, object[k]]);
     }
     
-    array.sort((a, b) => a[1] - b[1])
-         .forEach(e => result.push(e[0]));
-
-    return result
+    return array.sort((a, b) => a[1] - b[1])
+        .map(a => a[0])
 }
+console.log(getSortKeys())
